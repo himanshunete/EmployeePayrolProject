@@ -1,0 +1,73 @@
+﻿
+
+
+
+@Html.AntiForgeryToken()
+<div class="form-title">Employee Payroll Form</div>
+<label class="name" for="fname">Name </label>
+@*<input class="input-name" type="text" id="fname" name="fname"><br><br>*@
+@Html.TextBoxFor(m => m.Name, new { @class = "input-name", id = "fname" })
+@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+
+<label class="profile-image" for="fradio1">Profile image </label>
+
+<div class="radio-box">
+    @Html.RadioButtonFor(m => m.ProfileImage, "~/assets/face1.PNG", new { @class = "radio1", id = "fradio1" })
+    <img class="image1" src="~/assets/face1.PNG" />
+    @Html.RadioButtonFor(m => m.ProfileImage, "~/assets/face2.PNG", new { @class = "radio2", id = "fradio1" })
+    <img class="image2" src="~/assets/face2.PNG" />
+    @Html.RadioButtonFor(m => m.ProfileImage, "~/assets/face3.PNG", new { @class = "radio3", id = "fradio1" })
+    <img class="image3" src="~/assets/face3.PNG" />
+    @Html.RadioButtonFor(m => m.ProfileImage, "~/assets/face4.PNG", new { @class = "radio4", id = "fradio1" })
+    <img class="image4" src="~/assets/face4.PNG" />
+    @Html.ValidationMessageFor(m => m.ProfileImage, "", new { @class = "text-danger", id = "fradio1" })
+</div>
+
+<label class="gender">Gender </label>
+<div class="gender-box">
+    @Html.RadioButtonFor(m => m.Gender, "M", new { @class = "male-input", id = "gender" })
+    <label class="male-label" for="gender">Male </label>
+    @Html.RadioButtonFor(m => m.Gender, "F", new { @class = "female-input", id = "gender" })
+    <label class="female-label" for="gender">Female </label>
+
+    @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger", id = "gender" })
+</div>
+
+<label class="department">Department </label>
+<div class="department-box">
+    @Html.CheckBoxFor(m => m.isHRChecked, new { @class = "HR", id = "Dept1", @unchecked = "true", name = "Dept" })
+    <label class="HR-label" for="HR">HR </label>
+    @Html.CheckBoxFor(m => m.isSalesChecked, new { @class = "Sales", id = "Dept2", @unchecked = "true", name = "Dept" })
+    <label class="Sales-label" for="Sales">Sales </label>
+    @Html.CheckBoxFor(m => m.isFinanceChecked, new { @class = "Finance", id = "Dept3", @unchecked = "true", name = "Dept" })
+    <label class="Finance-label" for="Finance">Finance </label>
+    @Html.CheckBoxFor(m => m.isEngineerChecked, new { @class = "Engineer", id = "Dept4", @unchecked = "true", name = "Dept" })
+    <label class="Engineer-label" for="Engineer">Engineer </label>
+    @Html.CheckBoxFor(m => m.isOthersChecked, new { @class = "Others", id = "Dept5", @unchecked = "true", name = "Dept" })
+    <label class="Others-label" for="Others">Others </label>
+
+
+</div>
+
+
+<label class="salary-label" for="salary">Salary</label>
+@Html.DropDownList("Salary", (IEnumerable<SelectListItem>)ViewData["Salary"], "Select Salary", new { @class = "salary-select", id = "salary", name = "salary" })
+@Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger", id = "salary" })
+
+<label class="date-label" for="date">Start Date</label>
+@Html.DropDownList("Year", (IEnumerable<SelectListItem>)ViewData["Year"], "Year", new { @class = "year-select", id = "year", name = "year" })
+@Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger", id = "year" })
+
+
+@Html.DropDownList("Month", (IEnumerable<SelectListItem>)ViewData["Month"], "Month", new { @class = "month-select", id = "month", name = "month" })
+@Html.ValidationMessageFor(m => m.Month, "", new { @class = "text-danger", id = "month" })
+
+@Html.DropDownList("Day", (IEnumerable<SelectListItem>)ViewData["Day"], "Day", new { @class = "day-select", id = "day", name = "day" })
+@Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger", id = "day" })
+
+
+<label class="note" for="fnote">Note </label>
+@Html.TextBoxFor(m => m.Notes, new { @class = "input-note", id = "fnote", name = "fnote" })
+<br>
+<br>
+

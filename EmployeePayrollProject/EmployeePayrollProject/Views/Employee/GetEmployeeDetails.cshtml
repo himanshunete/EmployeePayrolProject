@@ -1,0 +1,135 @@
+﻿
+@model Commonlayer.Models.RequestModel.Employee
+@{IEnumerable<Commonlayer.Models.RequestModel.Employee>
+            employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
+    IEnumerable<Commonlayer.Models.RequestModel.Employee>
+    employeesDepartments = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees_departments"];}
+
+
+@{
+    ViewBag.Title = "GetEmployeeDetails";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table id="t01">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            <div>
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th> Actions </th>
+    </tr>
+    @foreach (var item in employees)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                    @foreach (var person in employeesDepartments)
+                    {
+                        if (person.EmployeeId == item.EmployeeId)
+                        {
+                            for (var i = 1; i < person.multipleDepartments.Length; i++)
+                            {
+                            @Html.DisplayFor(modelItem => person.multipleDepartments[i])
+                                }
+                            }
+
+                        }
+
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Form", new { @style = "background-image:url('~/assets/delete.png')", id = item.EmployeeId }, null) |
+                @Html.ActionLink("Edit", "EditEmployee", new { @style = "background-image:url('~/assets/edit.png')", id = item.EmployeeId }, null)
+            </td>
+        </tr>
+    }
+
+
+
+</table>
+
+<style>
+    table#t01 {
+        width: 100%;
+        background-color: white;
+    }
+
+
+        /*table#t01 td + td + td {*/ /* this will go to the 2nd column of a table directly */
+
+        /*padding-left:20px;
+            position: relative;
+            left: 104px;
+        }*/
+
+        /*table#t01 td + td + td +td{*/ /* this will go to the 2nd column of a table directly */
+
+        /*padding-left: 20px;
+        }*/
+
+        /*  table#t01 tr:nth-child(even) {
+            background-color: #eee;
+        }*/
+
+        /*  table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }*/
+
+        table#t01 th {
+            color: white;
+            background-color: #42515F;
+        }
+
+    table, th, td {
+        border-top: 1px solid #ddd;
+    }
+
+    /* table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }*/
+
+    th, td {
+        padding: 15px;
+    }
+</style>
+

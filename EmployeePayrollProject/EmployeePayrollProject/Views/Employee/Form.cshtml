@@ -1,0 +1,32 @@
+﻿@model  Commonlayer.Models.RequestModel.Employee employee = Commonlayer.Models.RequestModel.Employee 
+   
+
+@{
+    ViewBag.Title = "Form";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    @*<title>Wehry Home Page</title>*@
+</head>
+
+<body>
+
+    @using (Html.BeginForm("Form", "Employee", FormMethod.Post, new { @class = "form-box" }))
+    {
+       
+        @Html.Partial("~/Views/Shared/_EmployeeForm.cshtml",  )
+        <div class="button">
+            <button class="button1">Cancel</button>
+            <button class="button2" type="submit">Submit</button>
+            <button class="button3">Reset</button>
+
+
+        </div>
+    }
+
+    <h4 style="color:purple" id="output"></h4>
+</body>
+
+

@@ -1,0 +1,87 @@
+﻿.column-name {
+    position: absolute;
+    width: 1455px;
+    height: 67px;
+    background-color: #42515F;
+    left: 214px;
+    top: 204px;
+    color: white;
+}
+
+.row-name {
+    position: absolute;
+    left: 118px;
+}
+
+.row-gender {
+    position: absolute;
+    left: 333px;
+}
+
+.row-department {
+    position: absolute;
+    left: 560px;
+}
+
+.row-salary {
+    position: absolute;
+    left: 812px;
+}
+
+.row-startdate {
+    position: absolute;
+    left: 1040px;
+}
+
+.row-action {
+    position: absolute;
+    left: 1237px;
+}
+.row {
+    position: absolute;
+    left: 504px;
+    top: 295px;
+}
+
+.profile1 {
+    position: absolute;
+    right: 211px;
+}
+
+.name1 {
+    position: absolute;
+    right: 129px;
+}
+
+.gender1 {
+    position: absolute;
+    left: 77px;
+    top:0px;
+}
+
+.department1 {
+    position: absolute;
+    left: 294px;
+}
+
+.salary1 {
+    position: absolute;
+    left: 534px;
+}
+
+.startdate1 {
+    position: absolute;
+    left: 765px;
+}
+
+.action1 {
+    position: absolute;
+    left: 959px;
+}
+
+.delete {
+    position: absolute;
+    bottom: 29px;
+    left: 52px;
+}
+
