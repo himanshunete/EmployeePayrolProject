@@ -13,6 +13,7 @@ namespace EmployeePayrollProject.Controllers
 {
     public class EmployeeController : Controller
     {
+
         IEmployeeBL employeeBL;
         IGetItemsBL getItemsBL;
         Employee employeeEdit = new Employee();
@@ -33,12 +34,12 @@ namespace EmployeePayrollProject.Controllers
 
         public ActionResult Form()
         {
-           
+
             ViewData["Salary"] = getItemsBL.GetSalary();
             ViewData["Day"] = getItemsBL.GetDay();
             ViewData["Month"] = getItemsBL.GetMonth();
             ViewData["Year"] = getItemsBL.GetYear();
-            
+
             return View();
         }
 
@@ -50,14 +51,12 @@ namespace EmployeePayrollProject.Controllers
             {
 
                 employeeBL.EmployeeRegistration(employee);
-                return View();
+                return RedirectToAction("GetEmployeeDetails");
             }
             else
             {
                 return View();
             }
-           
-            
         }
 
         public ActionResult GetEmployeeDetails()
@@ -73,15 +72,50 @@ namespace EmployeePayrollProject.Controllers
             var result2 = employeeBL.DetailsToEditDepartment(employeeId);
             employeeEdit.Name = result1.Name;
             employeeEdit.ProfileImage = result1.ProfileImage;
+            employeeEdit.Gender = result1.Gender;
             employeeEdit.Salary = result1.Salary;
             employeeEdit.StartDate = result1.StartDate;
+            string[] date = employeeEdit.StartDate.Split('-');
+            employeeEdit.Year = date[2];
+            employeeEdit.Month = date[1];
+            employeeEdit.Day = date[0];
             employeeEdit.isHRChecked = result2.isHRChecked;
             employeeEdit.isSalesChecked = result2.isSalesChecked;
             employeeEdit.isFinanceChecked = result2.isFinanceChecked;
             employeeEdit.isEngineerChecked = result2.isEngineerChecked;
             employeeEdit.isOthersChecked = result2.isOthersChecked;
             employeeEdit.Notes = result1.Notes;
-            return RedirectToAction("Form", new { employeeEdit });
+            ViewData["Salary"] = getItemsBL.GetSalary();
+            ViewData["Day"] = getItemsBL.GetDay();
+            ViewData["Month"] = getItemsBL.GetMonth();
+            ViewData["Year"] = getItemsBL.GetYear();
+
+            //ViewBag.salary = employeeEdit.Salary;
+            //ViewBag.year = employeeEdit.Year;
+            //ViewBag.day = employeeEdit.Day;
+            //ViewBag.month = employeeEdit.Month;
+            return View(employeeEdit);
+        }
+
+        [HttpPost]
+        public ActionResult EditEmployee(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                employeeBL.UpdateEmployeeDetails(employee);
+                employeeBL.UpdateDepartment(employee);
+                return RedirectToAction("GetEmployeeDetails");
+            }
+            else
+            {
+                return View(employee);
+            }
+        }
+
+        public ActionResult DeleteEmployee(int employeeId)
+        {
+            employeeBL.DeleteEmployee(employeeId); 
+            return RedirectToAction("GetEmployeeDetails");
         }
 
 

@@ -1,5 +1,13 @@
 ﻿
-
+@model  Commonlayer.Models.RequestModel.Employee
+@{IEnumerable<SelectListItem>
+                                                    year = (IEnumerable<SelectListItem>)ViewData["Year"];
+    IEnumerable<SelectListItem>
+                                          day = (IEnumerable<SelectListItem>)ViewData["Day"];
+    IEnumerable<SelectListItem>
+                                          month = (IEnumerable<SelectListItem>)ViewData["Month"];
+    IEnumerable<SelectListItem>
+                                          salary = (IEnumerable<SelectListItem>)ViewData["Salary"]; }
 
 
 @Html.AntiForgeryToken()
@@ -48,22 +56,6 @@
 
 
 </div>
-
-
-<label class="salary-label" for="salary">Salary</label>
-@Html.DropDownList("Salary", (IEnumerable<SelectListItem>)ViewData["Salary"], "Select Salary", new { @class = "salary-select", id = "salary", name = "salary" })
-@Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger", id = "salary" })
-
-<label class="date-label" for="date">Start Date</label>
-@Html.DropDownList("Year", (IEnumerable<SelectListItem>)ViewData["Year"], "Year", new { @class = "year-select", id = "year", name = "year" })
-@Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger", id = "year" })
-
-
-@Html.DropDownList("Month", (IEnumerable<SelectListItem>)ViewData["Month"], "Month", new { @class = "month-select", id = "month", name = "month" })
-@Html.ValidationMessageFor(m => m.Month, "", new { @class = "text-danger", id = "month" })
-
-@Html.DropDownList("Day", (IEnumerable<SelectListItem>)ViewData["Day"], "Day", new { @class = "day-select", id = "day", name = "day" })
-@Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger", id = "day" })
 
 
 <label class="note" for="fnote">Note </label>

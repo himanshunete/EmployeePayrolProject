@@ -12,8 +12,12 @@ namespace BusinessLayer.Interface
         void EmployeeRegistration(Employee employee);
         IList<Employee> GetEmployeeDetails();
         IList<Employee> GetEmployeeDepartmentDetails();
-
         Employee DetailsToEdit(int employeeId);
         Employee DetailsToEditDepartment(int employeeId);
+
+        void UpdateEmployeeDetails(Employee employee);
+        void UpdateDepartment(Employee employee);
+
+        void DeleteEmployee(int employeeId);
     }
 }

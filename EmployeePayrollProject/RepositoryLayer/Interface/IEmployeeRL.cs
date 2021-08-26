@@ -14,5 +14,10 @@ namespace RepositoryLayer.Interface
         IList<Employee> GetEmployeeDepartmentDetails();
         Employee DetailsToEdit(int employeeId);
         Employee DetailsToEditDepartment(int employeeId);
+
+        void UpdateEmployeeDetails(Employee employee);
+        void UpdateDepartment(Employee employee);
+
+        void DeleteEmployee(int employeeId);
     }
 }

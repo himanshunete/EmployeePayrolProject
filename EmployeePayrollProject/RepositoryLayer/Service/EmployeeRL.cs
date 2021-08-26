@@ -26,7 +26,7 @@ namespace RepositoryLayer.Service
             employee.CreatedDate = DateTime.Now;
             string StartDate = day + "-" + month + "-" + year;
             employee.StartDate = StartDate;
-            
+
             SqlCommand com = new SqlCommand("spEmployeeRegistration", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@Name", employee.Name);
@@ -79,16 +79,16 @@ namespace RepositoryLayer.Service
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
             List<Employee> resultList = new List<Employee>();
-           
+
             while (dr.Read())
             {
                 Employee entity = new Employee();
-                entity.EmployeeId = (int)dr["EmployeeId"];
-                entity.ProfileImage = (string)dr["ProfileImage"];
-                entity.Name = (string)dr["Name"];
+                entity.EmployeeId = Convert.ToInt32(dr["EmployeeId"]);
+                entity.ProfileImage = Convert.ToString(dr["ProfileImage"]);
+                entity.Name = Convert.ToString(dr["Name"]);
                 entity.Gender = Convert.ToChar(dr["Gender"]);
-                entity.Salary = (int)dr["Salary"];
-                entity.StartDate = (string)dr["StartDate"];
+                entity.Salary = Convert.ToString(dr["Salary"]);
+                entity.StartDate = Convert.ToString(dr["StartDate"]);
                 resultList.Add(entity);
             }
             con.Close();
@@ -102,17 +102,13 @@ namespace RepositoryLayer.Service
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
             List<Employee> resultList = new List<Employee>();
-           
+
             while (dr.Read())
             {
                 Employee entity = new Employee();
                 entity.EmployeeId = (int)dr["EmployeeId"];
                 entity.Department = (string)dr["DepartmentName"];
                 string[] departments = entity.Department.Split(',');
-                for (int i = 0; i < departments.Length; i++)
-                {
-                    departments[i] = departments[i].Trim();
-                }
                 entity.multipleDepartments = departments;
                 resultList.Add(entity);
             }
@@ -139,20 +135,22 @@ namespace RepositoryLayer.Service
             SqlCommand com = new SqlCommand("spDetailsToEdit", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@EmployeeId", employeeId);
+            con.Open();
             SqlDataReader dr = com.ExecuteReader();
             List<Employee> resultList = new List<Employee>();
             Employee entity = new Employee();
             while (dr.Read())
             {
-              
+
                 entity.EmployeeId = (int)dr["EmployeeId"];
                 entity.ProfileImage = (string)dr["ProfileImage"];
                 entity.Name = (string)dr["Name"];
-                entity.Gender = (char)dr["Gender"];
-                entity.Salary = (int)dr["Salary"];
+                entity.Gender = Convert.ToChar(dr["Gender"]);
+                entity.Salary = Convert.ToString(dr["Salary"]);
                 entity.StartDate = (string)dr["StartDate"];
 
             }
+            con.Close();
             return entity;
         }
 
@@ -161,6 +159,7 @@ namespace RepositoryLayer.Service
             SqlCommand com = new SqlCommand("spDetailsToEditDepartment", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@EmployeeId", employeeId);
+            con.Open();
             SqlDataReader dr = com.ExecuteReader();
             List<Employee> resultList = new List<Employee>();
             Employee entity = new Employee();
@@ -196,7 +195,112 @@ namespace RepositoryLayer.Service
                 entity.isOthersChecked = true;
             }
 
+            con.Close();
             return entity;
         }
+
+        public void UpdateEmployeeDetails(Employee employee)
+        {
+            string year = employee.Year;
+            string month = employee.Month;
+            string day = employee.Day;
+            employee.ModifiedDate = DateTime.Now;
+            string StartDate = day + "-" + month + "-" + year;
+            employee.StartDate = StartDate;
+
+            SqlCommand com = new SqlCommand("spUpdateEmployeeDetails", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@EmployeeId", employee.EmployeeId);
+            com.Parameters.AddWithValue("@Name", employee.Name);
+            com.Parameters.AddWithValue("@ProfileImage", employee.ProfileImage);
+            com.Parameters.AddWithValue("@Gender", employee.Gender);
+            com.Parameters.AddWithValue("@Salary", employee.Salary);
+            com.Parameters.AddWithValue("@StartDate", employee.StartDate);
+            com.Parameters.AddWithValue("@Notes", employee.Notes);
+            com.Parameters.AddWithValue("@ModifiedDate", employee.ModifiedDate);
+            var ReturnParameter = com.Parameters.Add("@Result", SqlDbType.Int);
+            ReturnParameter.Direction = ParameterDirection.ReturnValue;
+
+            con.Open();
+            com.ExecuteNonQuery();
+            int result = (int)ReturnParameter.Value;
+            con.Close();
+
+
+            if (employee.isHRChecked == true)
+            {
+                employee.Department = "1";
+                RegisterDepartment(employee);
+            }
+            else
+            {
+                employee.Department = "1";
+                UpdateDepartment(employee);
+            }
+            if (employee.isSalesChecked == true)
+            {
+                employee.Department = "2";
+                RegisterDepartment(employee);
+            }
+            else
+            {
+                employee.Department = "1";
+                UpdateDepartment(employee);
+            }
+            if (employee.isFinanceChecked == true)
+            {
+                employee.Department = "3";
+                RegisterDepartment(employee);
+            }
+            else
+            {
+                employee.Department = "1";
+                UpdateDepartment(employee);
+            }
+            if (employee.isEngineerChecked == true)
+            {
+                employee.Department = "4";
+                RegisterDepartment(employee);
+            }
+            else
+            {
+                employee.Department = "1";
+                UpdateDepartment(employee);
+            }
+            if (employee.isOthersChecked == true)
+            {
+                employee.Department = "5";
+                RegisterDepartment(employee);
+            }
+            else
+            {
+                employee.Department = "1";
+                UpdateDepartment(employee);
+            }
+        }
+
+        public void UpdateDepartment(Employee department)
+        {
+            SqlCommand com = new SqlCommand("spUpdateDepartment", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@EmployeeId", department.EmployeeId);
+            com.Parameters.AddWithValue("@DepartmentId", int.Parse(department.Department));
+
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            SqlCommand com = new SqlCommand("spDeleteEmployee", con);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@EmployeeId", employeeId);
+   
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+        }
+
     }
 }

@@ -186,12 +186,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\delete.PNG" />
+    <Content Include="assets\delete1.PNG" />
     <Content Include="assets\edit.PNG" />
+    <Content Include="assets\edit1.PNG" />
     <Content Include="assets\employee_payroll.PNG" />
     <Content Include="assets\face1.PNG" />
     <Content Include="assets\face2.PNG" />
     <Content Include="assets\face3.PNG" />
     <Content Include="assets\face4.PNG" />
+    <Content Include="assets\search.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -232,6 +235,7 @@
     <Content Include="Views\Employee\Form.cshtml" />
     <Content Include="Views\Employee\GetEmployeeDetails.cshtml" />
     <Content Include="Views\Shared\_EmployeeForm.cshtml" />
+    <Content Include="Views\Employee\EditEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

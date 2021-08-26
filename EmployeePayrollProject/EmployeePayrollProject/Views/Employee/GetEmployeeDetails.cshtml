@@ -1,7 +1,7 @@
 ﻿
 @model Commonlayer.Models.RequestModel.Employee
 @{IEnumerable<Commonlayer.Models.RequestModel.Employee>
-            employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
+                      employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
     IEnumerable<Commonlayer.Models.RequestModel.Employee>
     employeesDepartments = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees_departments"];}
 
@@ -10,9 +10,11 @@
     ViewBag.Title = "GetEmployeeDetails";
 }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="form-title1">Employee Details</div>
+<a href='@Url.Action("Form", "Employee")' class="add_user">
+    + Add User
+</a>
+
 
 <table id="t01">
     <tr>
@@ -43,7 +45,7 @@
 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ProfileImage)
+                <img src="@Url.Content(@item.ProfileImage)" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -52,19 +54,19 @@
                 @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                    @foreach (var person in employeesDepartments)
+                @foreach (var person in employeesDepartments)
+                {
+                    if (person.EmployeeId == item.EmployeeId)
                     {
-                        if (person.EmployeeId == item.EmployeeId)
+                        foreach (var dept in person.multipleDepartments)
                         {
-                            for (var i = 1; i < person.multipleDepartments.Length; i++)
-                            {
-                            @Html.DisplayFor(modelItem => person.multipleDepartments[i])
-                                }
-                            }
-
+                            @Html.DisplayFor(modelItem => dept, new { @class = "department_array" })
                         }
+                    }
 
-                </td>
+                }
+
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Salary)
             </td>
@@ -72,8 +74,10 @@
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.ActionLink("Delete", "Form", new { @style = "background-image:url('~/assets/delete.png')", id = item.EmployeeId }, null) |
-                @Html.ActionLink("Edit", "EditEmployee", new { @style = "background-image:url('~/assets/edit.png')", id = item.EmployeeId }, null)
+
+                @Html.ActionLink(" ", "DeleteEmployee", new { employeeId = item.EmployeeId }, new { @style = "background-image:url('../../assets/delete1.PNG');  position: absolute;  width: 33px; height: 35px; left:1204px" }) |
+                @Html.ActionLink(" ", "EditEmployee", new { employeeId = item.EmployeeId }, new { @style = "background-image:url('../../assets/edit1.PNG');  position: absolute;  width: 33px; height: 25px;left:1229px" })
+             
             </td>
         </tr>
     }
@@ -81,55 +85,6 @@
 
 
 </table>
+   
 
-<style>
-    table#t01 {
-        width: 100%;
-        background-color: white;
-    }
-
-
-        /*table#t01 td + td + td {*/ /* this will go to the 2nd column of a table directly */
-
-        /*padding-left:20px;
-            position: relative;
-            left: 104px;
-        }*/
-
-        /*table#t01 td + td + td +td{*/ /* this will go to the 2nd column of a table directly */
-
-        /*padding-left: 20px;
-        }*/
-
-        /*  table#t01 tr:nth-child(even) {
-            background-color: #eee;
-        }*/
-
-        /*  table#t01 tr:nth-child(odd) {
-            background-color: #fff;
-        }*/
-
-        table#t01 th {
-            color: white;
-            background-color: #42515F;
-        }
-
-    table, th, td {
-        border-top: 1px solid #ddd;
-    }
-
-    /* table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }*/
-
-    th, td {
-        padding: 15px;
-    }
-</style>
 

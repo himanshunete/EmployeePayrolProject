@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Service
 {
-    public class EmployeeBL:IEmployeeBL
+    public class EmployeeBL : IEmployeeBL
     {
         public IEmployeeRL employeeRL;
 
@@ -60,12 +60,27 @@ namespace BusinessLayer.Service
 
         public Employee DetailsToEdit(int employeeId)
         {
-             return this.employeeRL.DetailsToEdit(employeeId);
+            return this.employeeRL.DetailsToEdit(employeeId);
         }
 
         public Employee DetailsToEditDepartment(int employeeId)
         {
             return this.employeeRL.DetailsToEditDepartment(employeeId);
+        }
+
+        public void UpdateEmployeeDetails(Employee employee)
+        {
+            this.employeeRL.UpdateEmployeeDetails(employee);
+        }
+
+        public void UpdateDepartment(Employee employee)
+        {
+            this.employeeRL.UpdateDepartment(employee);
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            this.employeeRL.DeleteEmployee(employeeId);
         }
     }
 }

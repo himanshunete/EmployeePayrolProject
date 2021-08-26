@@ -12,11 +12,12 @@ namespace Commonlayer.Models.RequestModel
     {
         public int EmployeeId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Enter Name")]
         public string Name { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Select Profile Image")]
         public string ProfileImage { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Select Gender")]
         public char Gender { get; set; }
         public bool isHRChecked { get; set; }
         public bool isSalesChecked { get; set; }
@@ -26,7 +27,7 @@ namespace Commonlayer.Models.RequestModel
         public string Department { get; set; }
         public string[] multipleDepartments { get; set; }
         [Required]
-        public int Salary { get; set; }
+        public string Salary { get; set; }
         [Required]
         public string Year { get; set; }
         [Required]

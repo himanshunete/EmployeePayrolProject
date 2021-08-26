@@ -1,0 +1,56 @@
+﻿@model Commonlayer.Models.RequestModel.Employee
+@{IEnumerable<SelectListItem> year = (IEnumerable<SelectListItem>)ViewData["Year"];
+    IEnumerable<SelectListItem>
+                                          day = (IEnumerable<SelectListItem>)ViewData["Day"];
+    IEnumerable<SelectListItem>
+                                          month = (IEnumerable<SelectListItem>)ViewData["Month"];
+    IEnumerable<SelectListItem>
+                                          salary = (IEnumerable<SelectListItem>)ViewData["Salary"]; }
+
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    @*<title>Wehry Home Page</title>*@
+</head>
+
+<body>
+
+    @using (Html.BeginForm("Edit", "Employee", FormMethod.Post, new { @class = "form-box" }))
+    {
+        @Html.Partial("~/Views/Shared/_EmployeeForm.cshtml", Model, new ViewDataDictionary { { "Year", year }, { "Day", day }, { "Month", month }, { "Salary", salary } })
+
+
+        <label class="salary-label" for="salary">Salary</label>
+        @Html.DropDownListFor(m => m.Salary, (IEnumerable<SelectListItem>)ViewData["Salary"], new { @class = "salary-select", id = "salary", name = "salary", Model.Salary })
+        @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger", id = "salary" })
+
+        <label class="date-label" for="date">Start Date</label>
+        @Html.DropDownListFor(m => m.Year, (IEnumerable<SelectListItem>)ViewData["Year"], new { @class = "year-select", id = "year", name = "year", Model.Year })
+        @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger", id = "year" })
+
+
+        @Html.DropDownListFor(m => m.Month, (IEnumerable<SelectListItem>)ViewData["Month"], new { @class = "month-select", id = "month", name = "month", Model.Month })
+        @Html.ValidationMessageFor(m => m.Month, "", new { @class = "text-danger", id = "month" })
+
+        @Html.DropDownListFor(m => m.Day, (IEnumerable<SelectListItem>)ViewData["Day"], new { @class = "day-select", id = "day", name = "day", Model.Day })
+        @Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger", id = "day" })
+
+
+<div class="button">
+    <button class="button1">Cancel</button>
+    <button class="button2">Edit</button>
+    <button class="button3">Reset</button>
+
+
+</div>
+    }
+
+    <h4 style="color:purple" id="output"></h4>
+</body>
+
+
