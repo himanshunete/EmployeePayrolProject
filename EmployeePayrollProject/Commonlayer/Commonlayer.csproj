@@ -66,6 +66,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Models\RequestModel\Employee.cs" />
     <Compile Include="Models\ResponseModel\EmployeeEdit.cs" />
+    <Compile Include="Models\ResponseModel\GetItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

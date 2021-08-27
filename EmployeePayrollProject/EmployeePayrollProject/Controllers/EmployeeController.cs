@@ -18,6 +18,7 @@ namespace EmployeePayrollProject.Controllers
         IGetItemsBL getItemsBL;
         Employee employeeEdit = new Employee();
         Employee employee = new Employee();
+        GetItems getItems = new GetItems();
         //private IConfiguration Configuration { get; }
 
         public EmployeeController(IEmployeeBL employeeBL, IGetItemsBL getItemsBL)
@@ -34,12 +35,10 @@ namespace EmployeePayrollProject.Controllers
 
         public ActionResult Form()
         {
-
-            ViewData["Salary"] = getItemsBL.GetSalary();
-            ViewData["Day"] = getItemsBL.GetDay();
-            ViewData["Month"] = getItemsBL.GetMonth();
-            ViewData["Year"] = getItemsBL.GetYear();
-
+            ViewBag.Salary = getItemsBL.GetSalary();
+            ViewBag.Month = getItemsBL.GetMonth();
+            ViewBag.Day = getItemsBL.GetDay();
+            ViewBag.Year = getItemsBL.GetYear();
             return View();
         }
 
@@ -55,7 +54,11 @@ namespace EmployeePayrollProject.Controllers
             }
             else
             {
-                return View();
+                ViewBag.Salary = getItemsBL.GetSalary();
+                ViewBag.Month = getItemsBL.GetMonth();
+                ViewBag.Day = getItemsBL.GetDay();
+                ViewBag.Year = getItemsBL.GetYear();
+                return View(employee);
             }
         }
 
@@ -108,6 +111,10 @@ namespace EmployeePayrollProject.Controllers
             }
             else
             {
+                ViewBag.Salary = getItemsBL.GetSalary();
+                ViewBag.Month = getItemsBL.GetMonth();
+                ViewBag.Day = getItemsBL.GetDay();
+                ViewBag.Year = getItemsBL.GetYear();
                 return View(employee);
             }
         }

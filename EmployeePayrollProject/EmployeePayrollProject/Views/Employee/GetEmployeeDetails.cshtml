@@ -1,7 +1,7 @@
-﻿
+﻿@using EmployeePayrollProject.Helpers;
 @model Commonlayer.Models.RequestModel.Employee
 @{IEnumerable<Commonlayer.Models.RequestModel.Employee>
-                      employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
+                        employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
     IEnumerable<Commonlayer.Models.RequestModel.Employee>
     employeesDepartments = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees_departments"];}
 
@@ -60,7 +60,27 @@
                     {
                         foreach (var dept in person.multipleDepartments)
                         {
-                            @Html.DisplayFor(modelItem => dept, new { @class = "department_array" })
+                            if (dept == " HR")
+                            {
+                                @Html.Label(dept, htmlAttributes: new { @class = "department_array1" })
+                            }
+                            if (dept == " Sales")
+                            {
+                                @Html.Label(dept, htmlAttributes: new { @class = "department_array2" })
+                            }
+                            if (dept == " Finance")
+                            {
+                                @Html.Label(dept, htmlAttributes: new { @class = "department_array3" })
+                            }
+                            if (dept == " Engineer")
+                            {
+                                @Html.Label(dept, htmlAttributes: new { @class = "department_array4" })
+                            }
+                            if (dept == " Others")
+                            {
+                                @Html.Label(dept, htmlAttributes: new { @class = "department_array5" })
+                            }
+
                         }
                     }
 
@@ -74,10 +94,11 @@
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
+                @Html.ImageActionLink(" ",
+"DeleteEmployee", "Employee", new { employeeId = item.EmployeeId }, null, "~/assets/delete.PNG", new { @style = "width: 16px; height: 21px" })
+                @Html.ImageActionLink(" ",
+"EditEmployee", "Employee", new { employeeId = item.EmployeeId }, null, "~/assets/edit.PNG", new { @style = "width: 24px; height: 21px" })
 
-                @Html.ActionLink(" ", "DeleteEmployee", new { employeeId = item.EmployeeId }, new { @style = "background-image:url('../../assets/delete1.PNG');  position: absolute;  width: 33px; height: 35px; left:1204px" }) |
-                @Html.ActionLink(" ", "EditEmployee", new { employeeId = item.EmployeeId }, new { @style = "background-image:url('../../assets/edit1.PNG');  position: absolute;  width: 33px; height: 25px;left:1229px" })
-             
             </td>
         </tr>
     }
@@ -85,6 +106,6 @@
 
 
 </table>
-   
+
 
 

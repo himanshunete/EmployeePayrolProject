@@ -67,6 +67,7 @@
     <Compile Include="Interface\IEmployeeRL.cs" />
     <Compile Include="Interface\IGetItemsRL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CultureInfo1.cs" />
     <Compile Include="Service\EmployeeRL.cs" />
     <Compile Include="Service\GetItemsRL.cs" />
   </ItemGroup>

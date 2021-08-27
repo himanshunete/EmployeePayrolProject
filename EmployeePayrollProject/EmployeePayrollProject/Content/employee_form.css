@@ -2,7 +2,7 @@
     display: flex;
     position: absolute;
     top: 42px;
-    left: 370px;
+    left: 529px;
     width: 1000px;
     height: 780px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -31,7 +31,7 @@
 
 .form-title1 {
     position: absolute;
-    top: 42px;
+    top: 58px;
     left: 350px;
     width: 290px;
     height: 37px;
@@ -567,7 +567,7 @@
 }
 
 .title2 {
-    top: 53px;
+    top: 28px;
     left: 0px;
     width: 107px;
     height: 27px;
@@ -609,4 +609,46 @@
     position: absolute;
     width: 100%;
     top: 106px;
+}
+
+.text-danger1 {
+    position: absolute;
+    top: 144px;
+    left: 280px;
+    color:red;
+}
+
+.text-danger2 {
+    position: absolute;
+    top: 203px;
+    left: 279px;
+    color: red;
+}
+
+.text-danger5 {
+    position: absolute;
+    top: 418px;
+    left: 279px;
+    color: red;
+}
+
+.text-danger6 {
+    position: absolute;
+    top: 494px;
+    left: 279px;
+    color: red;
+}
+
+.text-danger7 {
+    position: absolute;
+    top: 494px;
+    left: 394px;
+    color: red;
+}
+
+.text-danger8 {
+    position: absolute;
+    top: 494px;
+    left: 527px;
+    color: red;
 }

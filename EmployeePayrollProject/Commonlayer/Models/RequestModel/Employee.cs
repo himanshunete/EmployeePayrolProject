@@ -12,11 +12,13 @@ namespace Commonlayer.Models.RequestModel
     {
         public int EmployeeId { get; set; }
 
-        [Required(ErrorMessage = "Enter Name")]
+        [Required(ErrorMessage = "Name is required.")]
+        [RegularExpression("^([a-zA-Z]*)\\s+([a-zA-Z ]*)$", ErrorMessage = "Enter Correct Name")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Select Profile Image")]
         public string ProfileImage { get; set; }
+
         [Required(ErrorMessage = "Select Gender")]
         public char Gender { get; set; }
         public bool isHRChecked { get; set; }
@@ -26,14 +28,21 @@ namespace Commonlayer.Models.RequestModel
         public bool isOthersChecked { get; set; }
         public string Department { get; set; }
         public string[] multipleDepartments { get; set; }
-        [Required]
+
+        public IEnumerable<SelectListItem> salary1 { get; set; }
+
+        [Required(ErrorMessage = "Salary is required.")]
         public string Salary { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Year is required.")]
         public string Year { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Month is required.")]
         public string Month { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Day is required.")]
         public string Day { get; set; }
+
         public string StartDate { get; set; }
         public string Notes { get; set; }
         public DateTime CreatedDate { get; set; }

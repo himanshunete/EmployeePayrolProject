@@ -11,11 +11,11 @@
 
 
 @Html.AntiForgeryToken()
-<div class="form-title">Employee Payroll Form</div>
+
 <label class="name" for="fname">Name </label>
 @*<input class="input-name" type="text" id="fname" name="fname"><br><br>*@
 @Html.TextBoxFor(m => m.Name, new { @class = "input-name", id = "fname" })
-@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger1" })
 
 <label class="profile-image" for="fradio1">Profile image </label>
 
@@ -28,7 +28,7 @@
     <img class="image3" src="~/assets/face3.PNG" />
     @Html.RadioButtonFor(m => m.ProfileImage, "~/assets/face4.PNG", new { @class = "radio4", id = "fradio1" })
     <img class="image4" src="~/assets/face4.PNG" />
-    @Html.ValidationMessageFor(m => m.ProfileImage, "", new { @class = "text-danger", id = "fradio1" })
+    @Html.ValidationMessageFor(m => m.ProfileImage, "", new { @class = "text-danger2", id = "fradio1" })
 </div>
 
 <label class="gender">Gender </label>
@@ -37,8 +37,7 @@
     <label class="male-label" for="gender">Male </label>
     @Html.RadioButtonFor(m => m.Gender, "F", new { @class = "female-input", id = "gender" })
     <label class="female-label" for="gender">Female </label>
-
-    @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger", id = "gender" })
+    @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger3", id = "gender" })
 </div>
 
 <label class="department">Department </label>
@@ -53,6 +52,7 @@
     <label class="Engineer-label" for="Engineer">Engineer </label>
     @Html.CheckBoxFor(m => m.isOthersChecked, new { @class = "Others", id = "Dept5", @unchecked = "true", name = "Dept" })
     <label class="Others-label" for="Others">Others </label>
+
 
 
 </div>

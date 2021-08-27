@@ -17,6 +17,7 @@ namespace RepositoryLayer.Service
         //create new sqlconnection and connection to database by using connection string from web.config file  
         public static readonly string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
+        CultureInfo1 cultureInfo1 = new CultureInfo1();
 
         public void EmployeeRegistration(Employee employee)
         {
@@ -87,7 +88,7 @@ namespace RepositoryLayer.Service
                 entity.ProfileImage = Convert.ToString(dr["ProfileImage"]);
                 entity.Name = Convert.ToString(dr["Name"]);
                 entity.Gender = Convert.ToChar(dr["Gender"]);
-                entity.Salary = Convert.ToString(dr["Salary"]);
+                entity.Salary = cultureInfo1.Rupee() + " " +Convert.ToString(dr["Salary"]);
                 entity.StartDate = Convert.ToString(dr["StartDate"]);
                 resultList.Add(entity);
             }
