@@ -13,17 +13,26 @@ namespace EmployeePayrollProject
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "About", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-              name: "Default1",
-              url: "{controller}/{action}/{id}",
-              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+              name: "abc",
+              url: "abc",
+              defaults: new { controller = "Employee", action = "GetEmployeeDetails" }
+
+
           );
+
+         
         }
+
     }
+
+
 }

@@ -22,5 +22,9 @@ namespace Commonlayer.Models.ResponseModel
         public string Notes { get; set; }
         public DateTime ModifiedDate { get; set; }
 
+        public string Year { get; set; }
+        public string Month { get; set; }
+        public string Day { get; set; }
+
     }
 }

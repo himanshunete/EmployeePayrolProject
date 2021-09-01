@@ -1,4 +1,5 @@
-﻿using RepositoryLayer.Interface;
+﻿using Commonlayer.Models.RequestModel;
+using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,5 +125,19 @@ namespace RepositoryLayer.Service
             return dayList;
         }
 
+        //public List<CheckBoxes> GetDept()
+        //{
+        //    List<CheckBoxes> deptList = new List<CheckBoxes>()
+        //    {
+        //        new CheckBoxes {Text="HR", Value="HR" },
+        //        new CheckBoxes {Text="Sales", Value="Sales" },
+        //        new CheckBoxes {Text="Finance", Value="Finance" },
+        //        new CheckBoxes {Text="Engineer", Value="Engineer" },
+        //          new CheckBoxes {Text="Others", Value="Others" },
+        //    };
+
+        //    return deptList;
+
+        //}
     }
 }

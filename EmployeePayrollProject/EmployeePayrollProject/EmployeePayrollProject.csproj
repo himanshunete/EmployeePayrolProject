@@ -176,6 +176,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,13 +196,16 @@
     <Content Include="assets\face2.PNG" />
     <Content Include="assets\face3.PNG" />
     <Content Include="assets\face4.PNG" />
+    <Content Include="assets\info.png" />
     <Content Include="assets\search.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\credential.css" />
     <Content Include="Content\display.css" />
     <Content Include="Content\employee_form.css" />
+    <Content Include="Content\Snackbar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,6 +223,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Snackbar.js" />
+    <Content Include="Scripts\view_details.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -237,6 +243,11 @@
     <Content Include="Views\Employee\GetEmployeeDetails.cshtml" />
     <Content Include="Views\Shared\_EmployeeForm.cshtml" />
     <Content Include="Views\Employee\EditEmployee.cshtml" />
+    <Content Include="Views\Admin\Register.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_RegisterLogin.cshtml" />
+    <Content Include="Views\Employee\UnAuthorized.cshtml" />
+    <Content Include="Views\Employee\ViewDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,7 +14,7 @@
 
 <label class="name" for="fname">Name </label>
 @*<input class="input-name" type="text" id="fname" name="fname"><br><br>*@
-@Html.TextBoxFor(m => m.Name, new { @class = "input-name", id = "fname" })
+@Html.TextBoxFor(m => m.Name, new { @class = "input-name", id = "fname" , @style = "font-size:16px" })
 @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger1" })
 
 <label class="profile-image" for="fradio1">Profile image </label>
@@ -34,9 +34,9 @@
 <label class="gender">Gender </label>
 <div class="gender-box">
     @Html.RadioButtonFor(m => m.Gender, "M", new { @class = "male-input", id = "gender" })
-    <label class="male-label" for="gender">Male </label>
+    <label class="male-label" >Male </label>
     @Html.RadioButtonFor(m => m.Gender, "F", new { @class = "female-input", id = "gender" })
-    <label class="female-label" for="gender">Female </label>
+    <label class="female-label" >Female </label>
     @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger3", id = "gender" })
 </div>
 
@@ -52,6 +52,7 @@
     <label class="Engineer-label" for="Engineer">Engineer </label>
     @Html.CheckBoxFor(m => m.isOthersChecked, new { @class = "Others", id = "Dept5", @unchecked = "true", name = "Dept" })
     <label class="Others-label" for="Others">Others </label>
+
 
 
 

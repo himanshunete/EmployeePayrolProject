@@ -141,48 +141,53 @@ th, td {
 .department_array1 {
     background-color: yellow;
     width: 62px;
-    height: 17px;
+    height: 24px;
     position: relative;
-    left: 7px;
+    left: 2px;
     border-radius: 7px;
+    padding-left: 17px;
 }
 
 .department_array2 {
     background-color: yellow;
     width: 62px;
-    height: 17px;
+    height: 24px;
     position: relative;
-    left: 11px;
+    left: 2px;
     border-radius: 7px;
+    padding-left: 17px;
 }
 
 .department_array3 {
     background-color: yellow;
     width: 62px;
-    height: 17px;
+    height: 24px;
     position: relative;
-    left: 3px;
+    left: 2px;
     border-radius: 7px;
+    padding-left: 17px;
 }
 
 
 .department_array4 {
     background-color: yellow;
     width: 62px;
-    height: 17px;
+    height: 24px;
     position: relative;
-    left: 3px;
+    left: 2px;
     border-radius: 7px;
+    padding-left: 17px;
 }
 
 
 .department_array5 {
     background-color: yellow;
     width: 62px;
-    height: 17px;
+    height: 24px;
     position: relative;
-    left: 3px;
+    left: 2px;
     border-radius: 7px;
+    padding-left: 17px;
 }
 
 .button {

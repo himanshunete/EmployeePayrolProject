@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interface;
+using Commonlayer.Models.RequestModel;
 using RepositoryLayer.Interface;
 using System;
 using System.Collections.Generic;
@@ -37,5 +38,10 @@ namespace BusinessLayer.Service
         {
             return this.getItemsRL.GetYear();
         }
+
+        //public List<CheckBoxes> GetDept()
+        //{
+        //    return this.getItemsRL.GetDept();
+        //}
     }
 }

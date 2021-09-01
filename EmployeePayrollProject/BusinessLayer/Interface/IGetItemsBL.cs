@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Commonlayer.Models.RequestModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace BusinessLayer.Interface
         List<SelectListItem> GetYear();
         List<SelectListItem> GetMonth();
         List<SelectListItem> GetDay();
+        //List<CheckBoxes> GetDept();
     }
 }

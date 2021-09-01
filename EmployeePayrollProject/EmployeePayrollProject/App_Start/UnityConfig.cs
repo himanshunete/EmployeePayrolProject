@@ -21,6 +21,8 @@ namespace EmployeePayrollProject.App_Start
             container.RegisterType<IEmployeeRL, EmployeeRL>();
             container.RegisterType<IGetItemsBL, GetItemsBL>();
             container.RegisterType<IGetItemsRL, GetItemsRL>();
+            container.RegisterType<IAdminRL, AdminRL>();
+            container.RegisterType<IAdminBL, AdminBL>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
 

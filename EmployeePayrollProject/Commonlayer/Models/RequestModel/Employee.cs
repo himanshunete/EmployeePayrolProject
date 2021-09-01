@@ -42,10 +42,13 @@ namespace Commonlayer.Models.RequestModel
 
         [Required(ErrorMessage = "Day is required.")]
         public string Day { get; set; }
+      
 
         public string StartDate { get; set; }
         public string Notes { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
     }
+   
+ 
 }

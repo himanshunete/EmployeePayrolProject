@@ -149,6 +149,7 @@ namespace RepositoryLayer.Service
                 entity.Gender = Convert.ToChar(dr["Gender"]);
                 entity.Salary = Convert.ToString(dr["Salary"]);
                 entity.StartDate = (string)dr["StartDate"];
+                entity.Notes = (string)dr["Notes"];
 
             }
             con.Close();
@@ -209,7 +210,8 @@ namespace RepositoryLayer.Service
             string StartDate = day + "-" + month + "-" + year;
             employee.StartDate = StartDate;
 
-            SqlCommand com = new SqlCommand("spUpdateEmployeeDetails", con);
+
+            SqlCommand com = new SqlCommand("spUpdateEmployeDetails", con);
             com.CommandType = System.Data.CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@EmployeeId", employee.EmployeeId);
             com.Parameters.AddWithValue("@Name", employee.Name);
@@ -279,6 +281,7 @@ namespace RepositoryLayer.Service
                 UpdateDepartment(employee);
             }
         }
+
 
         public void UpdateDepartment(Employee department)
         {

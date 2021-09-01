@@ -1,0 +1,106 @@
+﻿@model Commonlayer.Models.RequestModel.Employee
+
+@{
+    ViewBag.Title = "ViewDetails";
+}
+
+<h2>ViewDetails</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        @foreach (var dept in Model.multipleDepartments)
+        {
+        if (dept == " HR")
+        {
+        @Html.Label(dept, htmlAttributes: new { @class = "department_array1", @style = "font-size:13px" })
+        }
+        if (dept == " Sales")
+        {
+        @Html.Label(dept, htmlAttributes: new { @class = "department_array2", @style = "font-size:13px" })
+        }
+        if (dept == " Finance")
+        {
+        @Html.Label(dept, htmlAttributes: new { @class = "department_array3", @style = "font-size:13px" })
+        }
+        if (dept == " Engineer")
+        {
+        @Html.Label(dept, htmlAttributes: new { @class = "department_array4", @style = "font-size:13px" })
+        }
+        if (dept == " Others")
+        {
+        @Html.Label(dept, htmlAttributes: new { @class = "department_array5", @style = "font-size:13px" })
+        }
+
+        }
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+

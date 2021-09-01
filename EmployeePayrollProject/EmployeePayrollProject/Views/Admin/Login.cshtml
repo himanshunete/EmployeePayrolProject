@@ -1,0 +1,67 @@
+﻿@model Commonlayer.Models.RequestModel.Credential
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+<body>
+    <div class="row justify-content-md-center">
+        <div class="col-md-5">
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+            {
+                //@Html.ValidationSummary()
+                @Html.AntiForgeryToken()
+
+                <div class="card" style=" width: 392px; height: 279px; position: relative; top: -138px;left:199px">
+                    <div class="card-header">
+                        <div class="card-title" style="font-size:16px">Login</div>
+                    </div>
+                    <div class="card-body">
+                        @Html.Partial("~/Views/Shared/_RegisterLogin.cshtml", Model)
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-danger" value="Login" style="font-size:16px" />
+                        </div>
+                    </div>
+                </div>
+                if (ViewBag.SnackbarNotification == "fail")
+                {
+                    if (ViewBag.JavaScriptFunction != null)
+                    {
+                        <script type="text/javascript">
+            @Html.Raw(ViewBag.JavaScriptFunction)
+                        </script>
+                        <div id="snackbar">login is failed, please login again</div>
+                    }
+
+                }
+            }
+        </div>
+    </div>
+
+
+    @if ((ViewBag.loginfailed == "loginfailed"))
+    {
+        <div id="snackbar" style=" position: relative;    top: 556px;   width: 310px;">Login failed</div>
+    }
+    @if ((ViewBag.adminsuccess == "adminsuccess"))
+    {
+        <div id="snackbar" style=" position: relative;    top: 556px;   width: 310px;">Admin is registered</div>
+    }
+
+
+
+</body>
+
+
+@if (ViewBag.JavaScriptFunction != null)
+{
+    <script type="text/javascript">
+        @Html.Raw(ViewBag.JavaScriptFunction)
+    </script>
+}
+
+
+
+

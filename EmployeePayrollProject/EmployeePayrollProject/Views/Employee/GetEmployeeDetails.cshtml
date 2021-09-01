@@ -1,7 +1,7 @@
 ﻿@using EmployeePayrollProject.Helpers;
 @model Commonlayer.Models.RequestModel.Employee
 @{IEnumerable<Commonlayer.Models.RequestModel.Employee>
-                        employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
+                              employees = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees"];
     IEnumerable<Commonlayer.Models.RequestModel.Employee>
     employeesDepartments = (IEnumerable<Commonlayer.Models.RequestModel.Employee>)ViewData["employees_departments"];}
 
@@ -10,102 +10,148 @@
     ViewBag.Title = "GetEmployeeDetails";
 }
 
-<div class="form-title1">Employee Details</div>
-<a href='@Url.Action("Form", "Employee")' class="add_user">
-    + Add User
-</a>
+<body>
+    <div class="form-title1">Employee Details</div>
+    <a href='@Url.Action("Form", "Employee")' style="font-size:16px;" class="add_user">
+        + Add User
+    </a>
 
 
-<table id="t01">
-    <tr>
-        <th>
-
-        </th>
-        <th>
-            <div>
-                @Html.DisplayNameFor(model => model.Name)
-            </div>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Department)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Salary)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th> Actions </th>
-    </tr>
-    @foreach (var item in employees)
-    {
-
+    <table id="t01">
         <tr>
-            <td>
-                <img src="@Url.Content(@item.ProfileImage)" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @foreach (var person in employeesDepartments)
+            <th>
+
+            </th>
+            <th style="font-size:16px">
+                <div>
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
+            </th>
+            <th style="font-size:16px">
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th style="font-size:16px">
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th style="font-size:16px">
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th style="font-size:16px">
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th style="font-size:16px"> Actions </th>
+        </tr>
+        @foreach (var item in employees)
+        {
+
+    <tr>
+        <td>
+            <img src="@Url.Content(@item.ProfileImage)" />
+        </td>
+        <td style="font-size:16px">
+            @Html.DisplayFor(modelItem => item.Name, new { @style = "font-size:16px" })
+        </td>
+        <td style="font-size:16px">
+            @Html.DisplayFor(modelItem => item.Gender, new { })
+        </td>
+        <td>
+            @foreach (var person in employeesDepartments)
+            {
+                if (person.EmployeeId == item.EmployeeId)
                 {
-                    if (person.EmployeeId == item.EmployeeId)
+                    foreach (var dept in person.multipleDepartments)
                     {
-                        foreach (var dept in person.multipleDepartments)
+                        if (dept == " HR")
                         {
-                            if (dept == " HR")
-                            {
-                                @Html.Label(dept, htmlAttributes: new { @class = "department_array1" })
-                            }
-                            if (dept == " Sales")
-                            {
-                                @Html.Label(dept, htmlAttributes: new { @class = "department_array2" })
-                            }
-                            if (dept == " Finance")
-                            {
-                                @Html.Label(dept, htmlAttributes: new { @class = "department_array3" })
-                            }
-                            if (dept == " Engineer")
-                            {
-                                @Html.Label(dept, htmlAttributes: new { @class = "department_array4" })
-                            }
-                            if (dept == " Others")
-                            {
-                                @Html.Label(dept, htmlAttributes: new { @class = "department_array5" })
-                            }
-
+                            @Html.Label(dept, htmlAttributes: new { @class = "department_array1", @style = "font-size:13px" })
                         }
-                    }
+                        if (dept == " Sales")
+                        {
+                            @Html.Label(dept, htmlAttributes: new { @class = "department_array2", @style = "font-size:13px" })
+                        }
+                        if (dept == " Finance")
+                        {
+                            @Html.Label(dept, htmlAttributes: new { @class = "department_array3", @style = "font-size:13px" })
+                        }
+                        if (dept == " Engineer")
+                        {
+                            @Html.Label(dept, htmlAttributes: new { @class = "department_array4", @style = "font-size:13px" })
+                        }
+                        if (dept == " Others")
+                        {
+                            @Html.Label(dept, htmlAttributes: new { @class = "department_array5", @style = "font-size:13px" })
+                        }
 
+                    }
                 }
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.ImageActionLink(" ",
+            }
+
+        </td>
+        <td style="font-size:16px">
+            @Html.DisplayFor(modelItem => item.Salary, new { @style = "font-size:16px" })
+        </td>
+        <td style="font-size:16px">
+            @Html.DisplayFor(modelItem => item.StartDate, new { @style = "font-size:16px" })
+        </td>
+        <td>
+            @Html.ImageActionLink(" ",
 "DeleteEmployee", "Employee", new { employeeId = item.EmployeeId }, null, "~/assets/delete.PNG", new { @style = "width: 16px; height: 21px" })
-                @Html.ImageActionLink(" ",
+            @Html.ImageActionLink(" ",
 "EditEmployee", "Employee", new { employeeId = item.EmployeeId }, null, "~/assets/edit.PNG", new { @style = "width: 24px; height: 21px" })
 
-            </td>
-        </tr>
+            <a href= onclick='navigate(this.href, @item.EmployeeId);'>
+                <input type="button" value='Submit' />
+            </a>
+
+            <input class="btn-default" type="submit" id="btnSave" onclick='navigate1(@item.EmployeeId)' />
+
+            <input class='.ViewDetails' id="select" type="button" value="@item.EmployeeId" style="width: 24px; height: 21px" src="~/assets/info.png" />
+
+            <button type="button" class="ShowImages" data-toggle="modal" id="@item.EmployeeId" data-target="#Modal" data-id="@item.EmployeeId" onclick="fun_ShowImages()"></button>
+        <input type="text" id="Id" value="@item.EmployeeId" visible="false" />
+        <button onclick="submit()">Submit Form</button>
+
+        </td>
+    </tr>
+        }
+
+
+
+    </table>
+    @if (ViewBag.register == "register")
+    {
+        <div id="snackbar" style=" position: relative;    top: 334px;   width: 310px;">Employee registration is successful</div>
+    }
+    @if (ViewBag.loginsuccess == "loginsuccess")
+    {
+        <div id="snackbar" style=" position: relative;    top: 334px;   width: 310px;">Login successful</div>
+    }
+    @if (ViewBag.editregister == "editregister")
+    {
+        <div id="snackbar" style=" position: relative;    top: 334px;   width: 310px;">Employee detail is successfully edited</div>
     }
 
 
+</body>
 
-</table>
+@if (ViewBag.JavaScriptFunction != null)
+{
+    <script type="text/javascript">
+        @Html.Raw(ViewBag.JavaScriptFunction)
+    </script>
+}
+
+    <script type='text/javascript'>
+        function submit() {
+            var data = {
+                employeeId: $('#Id').val(),
+              
+            };
+
+            $.post("/Employee/ViewDetails", { sm: data }, function () { alert('Successfully Saved') });
+        }
+    </script>
 
 
 

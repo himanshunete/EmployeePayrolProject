@@ -1,4 +1,5 @@
 ﻿@model Commonlayer.Models.RequestModel.Employee
+
 @{IEnumerable<SelectListItem> year = (IEnumerable<SelectListItem>)ViewData["Year"];
     IEnumerable<SelectListItem>
                                           day = (IEnumerable<SelectListItem>)ViewData["Day"];
@@ -20,35 +21,38 @@
 
 <body>
 
-    @using (Html.BeginForm("Edit", "Employee", FormMethod.Post, new { @class = "form-box" }))
+    @using (Html.BeginForm("EditEmployee", "Employee", FormMethod.Post, new { @class = "form-box" }))
     {
         <div class="form-title">Employee Payroll Edit Form</div>
         @Html.Partial("~/Views/Shared/_EmployeeForm.cshtml", Model, new ViewDataDictionary { { "Year", year }, { "Day", day }, { "Month", month }, { "Salary", salary } })
 
 
         <label class="salary-label" for="salary">Salary</label>
-        @Html.DropDownListFor(m => m.Salary, new SelectList(ViewBag.Salary, "Text", "Value"), new { @class = "salary-select", id = "salary", name = "salary", Model.Salary })
+        @Html.DropDownListFor(m => m.Salary, new SelectList(ViewBag.Salary, "Text", "Value"), Model.Salary,new { @class = "salary-select", id = "salary", name = "salary", Model.Salary })
         @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger5", id = "salary" })
 
         <label class="date-label" for="date">Start Date</label>
-        @Html.DropDownListFor(m => m.Year, new SelectList(ViewBag.Year, "Text", "Value"), new { @class = "year-select", id = "year", name = "year", Model.Year })
+        @Html.DropDownListFor(m => m.Year, new SelectList(ViewBag.Year, "Text", "Value"), Model.Year,new { @class = "year-select", id = "year", name = "year", Model.Year })
         @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger6", id = "year" })
 
 
-        @Html.DropDownListFor(m => m.Month, new SelectList(ViewBag.Month, "Text", "Value"), new { @class = "month-select", id = "month", name = "month", Model.Month })
+        @Html.DropDownListFor(m => m.Month, new SelectList(ViewBag.Month, "Text", "Value"), Model.Month,new { @class = "month-select", id = "month", name = "month", Model.Month })
         @Html.ValidationMessageFor(m => m.Month, "", new { @class = "text-danger7", id = "month" })
 
-        @Html.DropDownListFor(m => m.Day, new SelectList(ViewBag.Day, "Text", "Value"), new { @class = "day-select", id = "day", name = "day", Model.Day })
-        @Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger8", id = "day" })
+        @Html.DropDownListFor(m => m.Day, new SelectList(ViewBag.Day, "Text", "Value"), Model.Day,new { @class = "day-select", id = "day", name = "day", Model.Day })
+        @Html.ValidationMessageFor( m=> m.Day, "", new { @class = "text-danger8", id = "day" })
 
 
-        <div class="button">
-            <button class="button1">Cancel</button>
-            <button class="button2">Edit</button>
-            <button class="button3">Reset</button>
+<div class="button">
+        <a href='@Url.Action("GetEmployeeDetails", "Employee")' class="button1">
+            Cancel
+        </a>
+        <button class="button2" type="submit">Edit</button>
+        <a href='@Url.Action("Form", "Employee")' class="button3">
+            Reset
+        </a>
 
-
-        </div>
+</div>
     }
 
     <h4 style="color:purple" id="output"></h4>

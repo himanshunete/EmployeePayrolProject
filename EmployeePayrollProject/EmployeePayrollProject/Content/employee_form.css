@@ -354,6 +354,7 @@
     left: 275px;
     width: 552px;
     height: 94px;
+    font-size:16px;
 }
 
 .button {
@@ -374,6 +375,7 @@
     height: 46px;
     font-size: large;
     top: 628px;
+    padding-top:7px;
 }
 
 
@@ -388,6 +390,7 @@
     height: 46px;
     font-size: large;
     top: 628px;
+    border-color:white;
    
 }
 
@@ -404,6 +407,7 @@
     top: 628px;
     background-color: lightgray;
     color: black;
+    padding-top: 7px;
 }
 
 .button1:hover {

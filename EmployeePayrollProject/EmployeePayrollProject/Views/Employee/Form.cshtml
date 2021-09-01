@@ -26,26 +26,29 @@
         @Html.Partial("~/Views/Shared/_EmployeeForm.cshtml", Model)
 
         <label class="salary-label" for="salary">Salary</label>
-        @Html.DropDownListFor(m => m.Salary, new SelectList(ViewBag.Salary, "Text", "Value"), "Select Salary", new { @class = "salary-select", id = "salary", name = "salary" })
+        @Html.DropDownListFor(m => m.Salary, new SelectList(ViewBag.Salary, "Text", "Value"), "Select Salary", new { @class = "salary-select", id = "salary", name = "salary", @style = "font-size:16px" })
         @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "text-danger5", id = "year" })
 
         <label class="date-label" for="date">Start Date</label>
-        @Html.DropDownListFor(m => m.Year, new SelectList(ViewBag.Year, "Text", "Value"), "Year", new { @class = "year-select", id = "year", name = "year" })
+        @Html.DropDownListFor(m => m.Year, new SelectList(ViewBag.Year, "Text", "Value"), "Year", new { @class = "year-select", id = "year", name = "year", @style = "font-size:16px" })
         @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger6", id = "year" })
 
-
-        @Html.DropDownListFor(m => m.Month, new SelectList(ViewBag.Month, "Text", "Value"), "Month", new { @class = "month-select", id = "month", name = "month" })
+        @Html.DropDownListFor(m => m.Month, new SelectList(ViewBag.Month, "Text", "Value"), "Month", new { @class = "month-select", id = "month", name = "month", @style = "font-size:16px" })
         @Html.ValidationMessageFor(m => m.Month, "", new { @class = "text-danger7", id = "month" })
 
-        @Html.DropDownListFor(m => m.Day, new SelectList(ViewBag.Day, "Text", "Value"), "Day", new { @class = "day-select", id = "day", name = "day" })
+        @Html.DropDownListFor(m => m.Day, new SelectList(ViewBag.Day, "Text", "Value"), "Day", new { @class = "day-select", id = "day", name = "day", @style = "font-size:16px" })
         @Html.ValidationMessageFor(m => m.Day, "", new { @class = "text-danger8", id = "day" })
 
 
 
         <div class="button">
-            <button class="button1">Cancel</button>
+            <a href='@Url.Action("GetEmployeeDetails", "Employee")' class="button1">
+               Cancel
+            </a>
             <button class="button2" type="submit">Submit</button>
-            <button class="button3">Reset</button>
+            <a href='@Url.Action("Form", "Employee")' class="button3">
+                Reset
+            </a>
 
 
         </div>

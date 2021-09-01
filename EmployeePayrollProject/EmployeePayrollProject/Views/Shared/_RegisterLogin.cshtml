@@ -1,0 +1,16 @@
+﻿@model  Commonlayer.Models.RequestModel.Credential
+
+<div class="form-group">
+    @Html.LabelFor(m => m.EmailAddress, new { @style = "font-size:16px" })
+    @Html.TextBoxFor(m => m.EmailAddress, "", new { @class = "form-control", @placeholder = "Email Address", @style = "font-size:16px" })
+    @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "badge badge-danger" })
+    @if (ViewBag.error != null)
+    {
+        <span class="badge badge-danger">@ViewBag.error</span>
+    }
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Password, new { @style = "font-size:16px" })
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", @style = "font-size:16px" })
+    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+</div>
