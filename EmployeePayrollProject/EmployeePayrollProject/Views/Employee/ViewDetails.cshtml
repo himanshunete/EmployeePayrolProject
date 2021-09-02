@@ -4,103 +4,114 @@
     ViewBag.Title = "ViewDetails";
 }
 
-<h2>ViewDetails</h2>
 
-<div>
-    <h4>Employee</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<body>
+    <div class="card" style=" width: 673px; height: 601px; position: relative; top: 38px; left: 694px;">
+        <div class="card-header" style=" height: 53px;">
+            <div class="card-title" style="font-size: 24px; color: #42515F">Employee Details</div>
+        </div>
+        <div class="card-body" style="position: relative; left: 45px; top: 59px;">
+            <dl class="dl-horizontal" >
+                <dt style="font-size:21px">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dd style="font-size:21px">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileImage)
-        </dt>
+                <dt style="        font-size: 21px;        font-size: 21px;       position: relative;       top: 16px;">
+                    @Html.DisplayNameFor(model => model.ProfileImage)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProfileImage)
-        </dd>
+                <dd style="font-size:21px">
+                    <img src="@Url.Content(@Model.ProfileImage)" />
+                    
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+                <dt style="font-size:21px">
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+                <dd style="font-size:21px">
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
 
-        @foreach (var dept in Model.multipleDepartments)
-        {
-        if (dept == " HR")
-        {
-        @Html.Label(dept, htmlAttributes: new { @class = "department_array1", @style = "font-size:13px" })
-        }
-        if (dept == " Sales")
-        {
-        @Html.Label(dept, htmlAttributes: new { @class = "department_array2", @style = "font-size:13px" })
-        }
-        if (dept == " Finance")
-        {
-        @Html.Label(dept, htmlAttributes: new { @class = "department_array3", @style = "font-size:13px" })
-        }
-        if (dept == " Engineer")
-        {
-        @Html.Label(dept, htmlAttributes: new { @class = "department_array4", @style = "font-size:13px" })
-        }
-        if (dept == " Others")
-        {
-        @Html.Label(dept, htmlAttributes: new { @class = "department_array5", @style = "font-size:13px" })
-        }
+                <dt style="font-size:21px; position: relative;    top: 8px;">
+                    @Html.DisplayNameFor(model => model.Department)
+                </dt>
 
-        }
-        
-        <dt>
-            @Html.DisplayNameFor(model => model.Salary)
-        </dt>
+                <dd style="position: relative; top: 13px;">
+                @foreach (var dept in Model.multipleDepartments)
+                {
+                    if (dept == "HR")
+                    {
+                        @Html.Label(dept, htmlAttributes: new { @class = "department1", @style = "font-size:13px" })
+                    }
+                    if (dept == "Sales")
+                    {
+                        @Html.Label(dept, htmlAttributes: new { @class = "department2", @style = "font-size:13px" })
+                    }
+                    if (dept == "Finance")
+                    {
+                        @Html.Label(dept, htmlAttributes: new { @class = "department3", @style = "font-size:13px" })
+                    }
+                    if (dept == "Engineer")
+                    {
+                        @Html.Label(dept, htmlAttributes: new { @class = "department4", @style = "font-size:13px" })
+                    }
+                    if (dept == "Others")
+                    {
+                        @Html.Label(dept, htmlAttributes: new { @class = "department5", @style = "font-size:13px" })
+                    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
+                }
+                    </dd>
 
-     
+                <dt style="        font-size: 21px;        position: relative;       top: 20px;">
+                    @Html.DisplayNameFor(model => model.Salary)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
+                <dd style="        font-size: 21px;       position: relative;        top: 20px;">
+                    &#8377 @Html.DisplayFor(model => model.Salary)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
+                <dt style="        font-size: 21px;        position: relative;       top: 20px;">
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
+                <dd style="        font-size: 21px;        position: relative;        top: 20px;   ">
+                    @Html.DisplayFor(model => model.StartDate)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
+                <dt style="        font-size: 21px;        position: relative;        top: 20px;">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
+                <dd style="        font-size: 21px;        position: relative;        top: 20px;">
+                    @Html.DisplayFor(model => model.Notes)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
+                <dt style="        font-size: 21px;        position: relative;        top: 20px;">
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
 
-    </dl>
-</div>
+                <dd style="        font-size: 21px;       position: relative;       top: 20px;">
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+
+                <dt style="        font-size: 21px;       position: relative;       top: 20px;">
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </dt>
+
+                <dd style="        font-size: 21px;       position: relative;       top: 20px;">
+                    @Html.DisplayFor(model => model.ModifiedDate)
+                </dd>
+
+            </dl>
+            </div>
+        </div>
+</body>
 

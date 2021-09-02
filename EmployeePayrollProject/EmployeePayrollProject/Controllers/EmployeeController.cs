@@ -12,7 +12,7 @@ using static EmployeePayrollProject.FilterConfig;
 
 namespace EmployeePayrollProject.Controllers
 {
-    [CustomAuthenticationFilter]
+    //[CustomAuthenticationFilter]
     public class EmployeeController : Controller
     {
 
@@ -158,7 +158,6 @@ namespace EmployeePayrollProject.Controllers
         }
 
         [CustomAuthorize("Admin", "Employee")]
-        [HttpPost]
         public ActionResult ViewDetails(int employeeId)
         {
             var result1 = employeeBL.DetailsToEdit(employeeId);

@@ -99,18 +99,8 @@
 "DeleteEmployee", "Employee", new { employeeId = item.EmployeeId }, null, "~/assets/delete.PNG", new { @style = "width: 16px; height: 21px" })
             @Html.ImageActionLink(" ",
 "EditEmployee", "Employee", new { employeeId = item.EmployeeId }, null, "~/assets/edit.PNG", new { @style = "width: 24px; height: 21px" })
-
-            <a href= onclick='navigate(this.href, @item.EmployeeId);'>
-                <input type="button" value='Submit' />
-            </a>
-
-            <input class="btn-default" type="submit" id="btnSave" onclick='navigate1(@item.EmployeeId)' />
-
-            <input class='.ViewDetails' id="select" type="button" value="@item.EmployeeId" style="width: 24px; height: 21px" src="~/assets/info.png" />
-
-            <button type="button" class="ShowImages" data-toggle="modal" id="@item.EmployeeId" data-target="#Modal" data-id="@item.EmployeeId" onclick="fun_ShowImages()"></button>
-        <input type="text" id="Id" value="@item.EmployeeId" visible="false" />
-        <button onclick="submit()">Submit Form</button>
+         
+            <input class='.ViewDetails' id="select" type="button" value="@item.EmployeeId"  style="width: 24px; height: 21px" src="~/assets/info.png" />
 
         </td>
     </tr>
@@ -142,16 +132,7 @@
     </script>
 }
 
-    <script type='text/javascript'>
-        function submit() {
-            var data = {
-                employeeId: $('#Id').val(),
-              
-            };
-
-            $.post("/Employee/ViewDetails", { sm: data }, function () { alert('Successfully Saved') });
-        }
-    </script>
+    
 
 
 

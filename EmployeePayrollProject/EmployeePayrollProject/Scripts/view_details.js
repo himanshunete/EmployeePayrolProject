@@ -31,11 +31,14 @@
 
 
 $(document).ready(function () {
-    $("#btnSave").click(function navigate(value) {
+    $("#select").click(function () {
+        var employeeId = $('#select').val();
         $.ajax(
             {
                 type: "GET", //HTTP POST Method
-                url: "Employee/ViewDetails" + this.value, // Controller/View 
+                dataType: "html",
+                url: "ViewDetails?employeeId=" + employeeId, // Controller/View 
+                success: function (response) { $('body').html(response); }
             });
 
     });

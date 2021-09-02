@@ -221,3 +221,55 @@ th, td {
     padding-right: 34px;
 }
 
+
+.department1 {
+    background-color: yellow;
+    width: 68px;
+    height: 24px;
+    position: relative;
+    left: 2px;
+    border-radius: 7px;
+    padding-left: 17px;
+}
+
+.department2 {
+    background-color: yellow;
+    width: 68px;
+    height: 24px;
+    position: relative;
+    left: 2px;
+    border-radius: 7px;
+    padding-left: 17px;
+}
+
+.department3 {
+    background-color: yellow;
+    width: 68px;
+    height: 24px;
+    position: relative;
+    left: 2px;
+    border-radius: 7px;
+    padding-left: 17px;
+}
+
+
+.department4 {
+    background-color: yellow;
+    width: 73px;
+    height: 24px;
+    position: relative;
+    left: 2px;
+    border-radius: 7px;
+    padding-left: 17px;
+}
+
+
+.department5 {
+    background-color: yellow;
+    width: 68px;
+    height: 24px;
+    position: relative;
+    left: 2px;
+    border-radius: 7px;
+    padding-left: 17px;
+}
